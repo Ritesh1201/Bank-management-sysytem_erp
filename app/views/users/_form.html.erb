@@ -1,0 +1,45 @@
+<div class="container">
+  <%= form_for([@user.branch, @user]) do |form| %>
+          
+    <div class="field form-group">
+      <%= form.text_field :fname, class:"form-control", placeholder:"Enter first name" %>
+    </div>
+
+    <div class="field form-group">
+      <%= form.text_field :lname, class:"form-control", placeholder:"Enter last name" %>
+    </div>
+
+    <div class="field form-group">
+      <%= form.email_field :email, class:"form-control", placeholder:"Enter email" %>
+    </div>
+
+    <div class="field form-group">
+      <%= form.number_field :contact_no, class:"form-control", placeholder:"Enter contact number" %>
+    </div>
+
+    <div class="field form-group">
+      <%= form.text_field :address, class:"form-control", placeholder:"Enter address" %>
+    </div>
+
+    <div class="field form-group">
+      <%= form.select(:role, User.roles.keys.map {|role| [role.titleize,role]}) %>
+    </div>
+
+    <div class="field form-group">
+      <% if @minimum_password_length %>
+        <em>(<%= @minimum_password_length %> characters minimum)</em>
+      <% end %><br />
+      <%= form.password_field :password, class:"form-control", placeholder:"Enter password" %>
+    </div>
+          
+    <div class="field form-group">
+      <%= form.password_field :password_confirmation, class:"form-control", placeholder:"Confirm password" %>
+    </div>
+
+    <div style="text-align:center;">
+      <div class="actions">
+        <%= form.submit %>
+      </div>
+    </div>
+  <% end %>
+</div>

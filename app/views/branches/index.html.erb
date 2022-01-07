@@ -1,0 +1,23 @@
+<h3>This is branch's index page</h3>
+<h1>Branches</h1>
+
+
+<table>
+  <thead>
+      <tr>
+        <th>Branch name</th>
+        <th>Action</th>
+      </tr>
+  </thead>
+  <tbody>
+      <% @branches.each do |branch| %>
+          <tr>
+            <td><%= link_to branch.name, [branch.bank, branch] %></td>
+            <td><%= link_to 'Edit' %></td>
+            <td><%= link_to 'Delete' %></td>
+          </tr>
+      <% end %>
+  </tbody>
+</table>
+
+<%= link_to 'Add new branch', new_bank_branch_path(@bank) %>

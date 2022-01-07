@@ -1,0 +1,23 @@
+<h5> List of existing customers</h5>
+
+<%= link_to 'Create new customer', new_branch_user_path(@branch) %>
+
+<table>
+  <thead>
+      <tr>
+        <th>Customer name</th>
+        <th>Action</th>
+      </tr>
+  </thead>
+  <tbody>
+      <% @users.each do |user| %>
+        <% if user.has_role? :customer %>
+          <tr>
+            <td><%= link_to user.full_name, [user.branch, user] %></td>
+            <td><%= link_to 'Edit' %></td>
+            <td><%= link_to 'Delete' %></td>
+          </tr>
+        <% end %>
+      <% end %>
+  </tbody>
+</table>

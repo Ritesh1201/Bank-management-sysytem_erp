@@ -1,0 +1,47 @@
+
+
+<nav class="navbar navbar-expand-lg navbar-light bg-dark">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">BMS</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ml-auto">    
+            <% if current_user.has_role? :admin %>
+                <li class="nav-item">
+                    <%= link_to 'Banks', banks_path, class: 'btn btn-primary' %> &nbsp&nbsp&nbsp&nbsp
+                </li>
+                <li class="nav-item">
+                    <%= link_to 'Branches', class: 'btn btn-primary' %>&nbsp&nbsp&nbsp&nbsp
+                </li>
+                <li class="nav-item">
+                    <%= link_to 'Accounts', class: 'btn btn-primary' %>&nbsp&nbsp&nbsp&nbsp
+                </li>
+                <li class="nav-item">
+                    <%= link_to 'Trasactions', class: 'btn btn-primary' %>
+                </li>
+            <% else %>
+                <li class="nav-item">
+                <%= link_to 'Accounts', class: 'btn btn-primary' %>&nbsp&nbsp&nbsp&nbsp
+                </li>
+                <li class="nav-item">
+                <%= link_to 'Trasactions', banks_path, class: 'btn btn-primary' %>
+                </li>
+            <% end %>
+
+            <li class="nav-item">
+            <%= current_user.email %>
+            </li> 
+            <li class="nav-item">
+                <%= link_to 'Sign Out', destroy_user_session_path, method: :delete, class: 'nav-link', class: 'btn btn-danger' %>
+            </li>
+    
+        </ul>
+    </div>
+</nav>

@@ -1,0 +1,35 @@
+<% if @account.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@account.errors.count, "error") %> prohibited this account from being saved: </h2>
+    <ul>
+      <% @account.errors.full_messages.each do |account| %>
+        <li><%= account %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<div class="container">
+  <%= form_for(@account) do |form| %>
+
+    <div class="field form-group">
+      <%= form.label :acc_type %>
+      <%= form.text_field :acc_type, class:"form-control", placeholder:"Enter type of account" %>
+    </div>
+
+    <% if @branch %>
+      <%= form.hidden_field :branch_id %>
+    <% end %>
+
+    <% if @user %>
+      <%= form.hidden_field :user_id%>
+    <% end %>
+
+    <div style="text-align:center;">
+      <div class="actions">
+        <%= form.submit %>
+      </div>
+    </div>
+
+  <% end %>
+</div>

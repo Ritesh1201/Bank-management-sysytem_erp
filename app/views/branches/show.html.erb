@@ -1,0 +1,18 @@
+<h3>This is branch's show page</h3>
+
+<% if current_user.has_role? :admin %>
+
+    | <%= link_to 'Add new user', new_branch_user_path(@branch)%> |<br>
+    | <%= link_to 'Show all employees', branch_users_path(@branch) %> |<br>
+    | <%= link_to 'Show all customers', existing_customer_branch_user_path(@branch) %> |<br>
+    | <%= link_to 'Show all accounts', branch_accounts_path(@branch) %> |<br>
+    | <%= link_to 'Create new account', select_type_branch_user_path(@branch) %> |
+    
+<% else %>
+
+    | <%= link_to 'Create new account', select_type_branch_user_path(@branch) %> |<br>
+    | <%= link_to 'Show all customers', existing_customer_branch_user_path(@branch) %> |<br>
+    | <%= link_to 'Show all accounts', branch_accounts_path(@branch) %> |<br>
+    | <%= link_to 'Create new account', select_type_branch_user_path(@branch) %> |
+<% end %>
+| <%= link_to 'Back', bank_path(@bank) %> |

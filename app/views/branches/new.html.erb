@@ -1,0 +1,30 @@
+<h5>This is branch's new page</h5>
+
+<h5>Add new branch</h5>
+
+<div class="container"> 
+  <%= form_for([@branch.bank, @branch]) do |form| %>
+    <div class="field form-group">
+      <%= form.label :name %>
+      <%= form.text_field :name, class:"form-control", placeholder:"Enter name" %>
+    </div>
+
+    <div class="field form-group">
+      <%= form.label :ifsc_code %>
+      <%= form.number_field :ifsc_code, class:"form-control", placeholder:"Enter ifsc code" %>
+    </div>
+
+    <div class="field form-group">
+      <%= form.label :address %>
+      <%= form.text_field :address, class:"form-control", placeholder:"Enter address" %>
+    </div>
+
+    <div style="text-align:center;">
+      <div class="actions">
+        <%= form.submit %>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+<%= link_to 'Show all branches', bank_path(@bank) %>

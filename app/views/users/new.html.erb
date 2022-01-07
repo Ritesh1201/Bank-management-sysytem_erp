@@ -1,0 +1,7 @@
+<% if current_user.has_role? :admin %>
+  <h5>Add new user</h5>
+  <%= render 'form' %>
+<% else %>
+  <h5>Add new customer</h5>
+  <%= render 'form_new_cust' %>
+<% end %>

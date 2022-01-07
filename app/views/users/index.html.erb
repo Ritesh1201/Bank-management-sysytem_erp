@@ -1,0 +1,24 @@
+<h3>This is user's index page</h3>
+<h1>Users</h1>
+
+<table>
+  <thead>
+      <tr>
+        <th>Employee name</th>
+        <th>Action</th>
+      </tr>
+  </thead>
+  <tbody>
+      <% @users.each do |user| %>
+        <% if user.has_role? :employee %>
+          <tr>
+            <td><%= user.full_name %></td>
+            <td><%= link_to 'Edit' %></td>
+            <td><%= link_to 'Delete' %></td>
+          </tr>
+        <% end %>
+      <% end %>
+  </tbody>
+</table>
+
+<%= link_to 'Create new user', new_branch_user_path(@branch) %>

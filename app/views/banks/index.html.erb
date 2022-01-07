@@ -1,0 +1,22 @@
+<h3>This is bank's index page</h3>
+<h3>Banks</h3>
+
+<table>
+  <thead>
+      <tr>
+        <th>Bank name</th>
+        <th>Action</th>
+      </tr>
+  </thead>
+  <tbody>
+      <% @banks.each do |bank| %>
+          <tr>
+            <td><%= link_to bank.name, bank %></td>
+            <td><%= link_to 'Edit', edit_bank_path(bank) %></td>
+            <td><%= link_to 'Delete', [bank], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          </tr>
+      <% end %>
+  </tbody>
+</table>
+
+<%= link_to 'Add new bank', new_bank_path %>
